@@ -1,0 +1,92 @@
+:root {
+    --on-hover: #fc8507;
+    --main-background: #3e3e3e;
+
+    --header-font-color: #e0e0e0;
+    --string-font-color: #d3d3d3;
+
+    --string-on-hover: #5e5d5d;
+}
+
+/* TODO 
+
+    repo в git? 
+    Настроить webpack, ES6 
+
+
+  */
+
+.accordion-item,
+.accordion-header-wrapper,
+.accordion-string {
+    cursor: pointer;
+}
+
+.accordion-header-wrapper {
+    max-width: 97%;
+
+    text-align: center;
+    white-space: nowrap;
+
+    margin: 10px auto;
+    padding: 5px 15px;
+    border-radius: 2px;
+    border-bottom: 2px solid var(--string-font-color);
+    color: var(--header-font-color);
+}
+
+/* Чтобы клик проходил в wrapper */
+.accordion-header-wrapper > h4 {
+    pointer-events: none;
+}
+
+.accordion-header-wrapper:hover {
+    border-bottom: 2px solid var(--on-hover);
+}
+
+.accordion-header-wrapper,
+.accordion-string {
+    background-color: var(--main-background);
+}
+
+.accordion-string {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 95%;
+    margin: 2px auto;
+    padding: 3px 10px;
+    color: var(--string-font-color);
+}
+
+.accordion-string:hover {
+    background-color: var(--string-on-hover);
+}
+
+.accordion-string > p {
+    /*Свойство gap не поддерживается, хотя, в целом, flex работает*/
+    margin-left: 12px;
+}
+
+.accordion-list.hide {
+    display: none;
+}
+
+/*Media queries в зависимости от темы пользователя*/
+@media (prefers-color-scheme: light) {
+    :root {
+        --main-background: #939393;
+        --header-font-color: whitesmoke;
+        --string-font-color: #f7f7f7;
+    }
+}
+
+@media (prefers-color-scheme: lightest) {
+    :root {
+        --main-background: #fff;
+        --header-font-color: rgb(68, 67, 67);
+        --string-font-color: rgb(68, 67, 67);
+        --string-on-hover: #b1b1b1cc;
+    }
+}
